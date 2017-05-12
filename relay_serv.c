@@ -27,7 +27,7 @@ int main (void)
         exit(1);
     }
 
-    if (setsockopt(descriptor, SOL_SOCKET, SO_BROADCAST, &bcast, sizeof(int) == -1)){
+    if (setsockopt(descriptor, SOL_SOCKET, SO_BROADCAST, &bcast, sizeof(int)) == -1){
         perror("failed to set as broadcast.");
         exit(1);
     }
