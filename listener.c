@@ -12,7 +12,7 @@ int main(void)
     int file;
     int size;
     char *data;
-    char buffer[512];
+    char buffer[512] = {'\0'};
 
     if((file = open("/tmp/mapped", O_RDONLY, 0644)) == -1){
         puts("Failed to open file (read).");
