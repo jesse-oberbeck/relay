@@ -35,7 +35,7 @@ int main(void)
 
     initTermios(1);
 
-    file = open("mapped", O_CREAT|O_RDWR|O_TRUNC, 0644);
+    file = open("/tmp/mapped", O_CREAT|O_RDWR|O_TRUNC, 0644);
     size = 4096;//getpagesize();
     posix_fallocate(file, 0, size);
     errno = 0;

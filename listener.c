@@ -14,7 +14,7 @@ int main(void)
     char *data;
     char *buffer[4096];
 
-    if((file = open("mapped", O_RDONLY, 0644)) == -1){
+    if((file = open("/tmp/mapped", O_RDONLY, 0644)) == -1){
         puts("Failed to open file (read).");
     }
     size = getpagesize();
