@@ -12,12 +12,12 @@ int main(void)
     int file;
     int size;
     char *data;
-    char *buffer[4096];
+    char buffer[512];
 
     if((file = open("/tmp/mapped", O_RDONLY, 0644)) == -1){
         puts("Failed to open file (read).");
     }
-    size = getpagesize();
+    size = 512;//getpagesize();
     if((data = mmap(NULL, size, PROT_READ, MAP_SHARED, file, 0)) == -1){
         perror("mmap");
     }
@@ -26,6 +26,7 @@ int main(void)
         //printf("%s\n", data);
         if(strcmp(data, buffer) != 0){
             strcpy(buffer,data);
+            system("clear");
             printf("%s\n", data);
         }
         for(int i = 0; data[i] != '\0'; ++i){
